@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google" content="notranslate">
+<title>Pasta e Vino - Speisekarte</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+    /* =========================================
+       1. DIGITAL THEME (SCREEN)
+       ========================================= */
+    :root {
+        --bg-dark: #0c1c12;
+        --card-ivory: #fcfcf7;
+        --gold: #b3975a;
+        --text-dark: #122c1d;
+        --text-muted: #4a5d4e;
+        --line-color: #d1cbb8;
+    }
+
+    body {
+        margin: 0; padding: 50px 15px 80px 15px; background-color: var(--bg-dark); 
+        font-family: 'Cormorant Garamond', serif; position: relative;
+    }
+
+    body::before {
+        content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background-image: url('https://images.unsplash.com/photo-1498579150354-979475d7e0b2?q=80&w=2000&auto=format&fit=crop'); 
+        background-size: cover; background-position: center; opacity: 0.15; z-index: -1;
+    }
+
+    .menu-container {
+        max-width: 850px; margin: 0 auto; background-color: var(--card-ivory); 
+        box-shadow: 0 40px 80px rgba(0,0,0,0.8); border: 1px solid var(--gold); 
+        outline: 1px solid var(--gold); outline-offset: -12px; padding: 60px 70px;
+        position: relative; overflow: hidden; 
+    }
+
+    .menu-container::before {
+        content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        background-image: url('https://images.unsplash.com/photo-1606555198971-ce4fbde3f55d?q=80&w=1000&auto=format&fit=crop');
+        background-size: cover; background-position: center; opacity: 0.05; z-index: 0; pointer-events: none;
+    }
+
+    .print-section { position: relative; z-index: 2; margin-bottom: 0; }
+
+    /* Elegante Box für das Sonntags-Special (Doppelrahmen-Design) */
+    .special-box {
+        border: 1px solid var(--gold);
+        outline: 1px solid var(--gold);
+        outline-offset: -6px;
+        padding: 20px;
+        margin: 25px auto 35px auto;
+        background-color: var(--card-ivory);
+        text-align: center;
+        font-style: italic;
+        color: var(--text-dark);
+        font-size: 1.15em;
+        line-height: 1.5;
+        position: relative;
+    }
+
+    .special-box strong {
+        font-family: 'Cinzel', serif;
+        color: var(--gold);
+        display: block;
+        margin-bottom: 6px;
+        font-size: 1.2em;
+        font-style: normal;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+    }
+
+    /* =========================================
+       2. TYPOGRAPHY & DIVIDERS
+       ========================================= */
+    h1 { text-align: center; font-weight: 600; font-style: italic; font-size: 4.5em; margin: 0; color: var(--text-dark); }
+    .info { text-align: center; font-size: 1.2em; font-style: italic; color: var(--text-muted); margin-top: 10px; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e0d8c3; line-height: 1.5; }
+    .info strong { color: var(--gold); font-weight: 600; }
+    
+    h2 { text-align: center; font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.6em; text-transform: uppercase; letter-spacing: 6px; color: var(--gold); margin-top: 50px; margin-bottom: 10px; }
+    .section-note { font-style: italic; color: var(--text-muted); text-align: center; margin-bottom: 30px; font-size: 1.2em; }
+    
+    .section-divider { display: flex; align-items: center; justify-content: center; margin: 40px 0; color: var(--gold); }
+    .section-divider::before, .section-divider::after { content: ""; flex-grow: 1; height: 1px; background: var(--line-color); margin: 0 15px; }
+
+    /* =========================================
+       3. MENU ITEMS
+       ========================================= */
+    .menu-item { margin-bottom: 22px; cursor: pointer; }
+    .menu-item-header, .drink-item { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4px; width: 100%; }
+    .menu-leader { flex-grow: 1; border-bottom: 2px dotted var(--line-color); margin: 0 10px; position: relative; top: -6px; opacity: 0.7; }
+    
+    .menu-item-name { font-weight: 600; font-size: 1.5em; color: var(--text-dark); line-height: 1.2; max-width: 80%; }
+    .menu-item-price, .drink-price { font-family: 'Cinzel', serif; font-weight: 600; color: var(--gold); font-size: 1.2em; white-space: nowrap; }
+    .menu-item-desc { color: var(--text-muted); font-size: 1.2em; font-style: italic; line-height: 1.3; padding-right: 15%; }
+    .tag { font-weight: 400; font-style: italic; font-size: 0.8em; color: #88998c; margin-left: 5px; white-space: nowrap; }
+
+    .drink-list { list-style-type: none; padding: 0; margin: 0; }
+    .drink-item { margin-bottom: 14px; align-items: flex-end; }
+    .drink-info { display: flex; flex-direction: column; max-width: 75%; }
+    .drink-type { font-family: 'Cinzel', serif; text-transform: uppercase; font-size: 0.7em; letter-spacing: 2px; color: #88998c; font-weight: 700; margin-bottom: 3px; }
+    .drink-name { font-weight: 600; font-size: 1.3em; color: var(--text-dark); line-height: 1.2; }
+
+    /* =========================================
+       4. INTERACTIVE WEB POPUP
+       ========================================= */
+    #image-popup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center; cursor: pointer; }
+    #image-popup img { max-width: 90%; max-height: 80%; border: 2px solid var(--gold); box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+
+    /* =========================================
+       5. MOBILE RESPONSIVENESS
+       ========================================= */
+    @media (max-width: 768px) {
+        body { padding: 10px 5px; }
+        .menu-container { padding: 30px 15px; outline-offset: -6px; }
+        h1 { font-size: 3em; }
+        h2 { font-size: 1.3em; letter-spacing: 3px; }
+        .menu-item-name { font-size: 1.25em; }
+        .menu-item-desc { padding-right: 0; font-size: 1.1em; }
+        .special-box { font-size: 1em; padding: 15px; margin: 15px auto 25px auto; }
+    }
+
+    /* =========================================
+       6. 2-PAGE COMPRESSED PRINT ARCHITECTURE
+       ========================================= */
+    @media print {
+        @page { margin: 1cm; size: A4 portrait; }
+        
+        body { background: white !important; padding: 0 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        body::before { display: none !important; }
+        
+        #image-popup, .hide-on-print { display: none !important; }
+
+        .menu-container {
+            border: none !important; outline: none !important; box-shadow: none !important;
+            padding: 0 !important; background: transparent !important; max-width: 100% !important;
+        }
+
+        .print-section {
+            background-color: var(--card-ivory) !important;
+            border: 1px solid var(--gold) !important;
+            outline: 1px solid var(--gold) !important;
+            outline-offset: -8px !important;
+            padding: 15px 20px !important; /* Slightly reduced top/bottom padding */
+            margin-bottom: 20px !important;
+            page-break-after: always;
+            page-break-inside: avoid;
+            min-height: 275mm !important; 
+            box-sizing: border-box !important; 
+        }
+        
+        .print-section:last-child { page-break-after: auto; }
+
+        /* Highly Compressed Typography for 2 pages */
+        h1 { font-size: 30pt !important; margin-bottom: 2px !important; }
+        .info { font-size: 10pt !important; padding-bottom: 5px !important; margin-bottom: 5px !important; }
+        
+        .special-box {
+            border: 1px solid var(--gold) !important;
+            outline: 1px solid var(--gold) !important;
+            outline-offset: -4px !important;
+            padding: 6px 10px !important; /* Shrunk padding to save space */
+            margin: 6px auto 10px auto !important; /* Shrunk margins */
+            font-size: 9.5pt !important;
+            line-height: 1.3 !important;
+        }
+        .special-box strong { font-size: 10.5pt !important; margin-bottom: 2px !important; }
+
+        h2 { font-size: 14pt !important; margin-top: 8px !important; margin-bottom: 4px !important; }
+        .section-note { font-size: 9.5pt !important; margin-bottom: 8px !important; }
+        
+        /* Fixed margin and enforced page-break rules */
+        .menu-item { margin-bottom: 8px !important; page-break-inside: avoid !important; }
+        .menu-item-name { font-size: 11.5pt !important; }
+        .menu-item-price, .drink-price { font-size: 11.5pt !important; }
+        .menu-item-desc { font-size: 9.5pt !important; line-height: 1.2 !important; }
+        .tag { font-size: 8.5pt !important; }
+        
+        .drink-item { margin-bottom: 6px !important; page-break-inside: avoid !important; }
+        .drink-name { font-size: 11pt !important; }
+        .drink-type { font-size: 7.5pt !important; margin-bottom: 1px !important; }
+        .section-divider { margin: 8px 0 !important; }
+        .menu-leader { top: -4px !important; border-bottom: 2px dotted #aaa !important; }
+    }
+</style>
+</head>
+<body>
+
+<div id="image-popup" onclick="this.style.display='none'">
+    <img id="popup-img" src="" alt="Menu Bild">
+</div>
+
+<div class="menu-container">
+
+    <div class="print-section">
+        <h1>Pasta e Vino</h1>
+        <div class="info">
+            <strong>Öffnungszeiten:</strong> Freitag & Samstag 16:00 – 22:00 Uhr | Sonntag 12:00 – 21:00 Uhr<br>
+            Bei gutem Wetter Terrasse täglich ab 16:00 Uhr geöffnet
+        </div>
+
+        <div class="special-box">
+            <strong>Speciale Famigliare</strong>
+            Sonntags 12:00 bis 15:00 Uhr &ndash; 3-Gänge-Menü<br>
+            Mind. 2 Erwachsene je 27,50 € | Personen von 8 bis 14 Jahren je 10,00 € | Kinder unter 8 Jahren frei
+        </div>
+
+        <h2>Antipasti</h2>
+        <div class="section-note">Salate und kalte Gerichte. Dazu unser Hausbrot und Aioli.</div>
+        
+        <div class="menu-item" onclick="showImage('images/antipasti.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">Antipasti misti</span><span class="menu-leader"></span><span class="menu-item-price">16,50 €</span></div>
+            <div class="menu-item-desc">Italienischer Aufschnitt, gegrilltes Gemüse und Oliven</div>
+        </div>
+        <div class="menu-item" onclick="showImage('images/insalata.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">Insalata con orecchione <span class="tag">(vegetarisch)</span></span><span class="menu-leader"></span><span class="menu-item-price">11,50 €</span></div>
+            <div class="menu-item-desc">Salatteller mit gebratenen Austernpilzen, Tomaten und Kräutern</div>
+        </div>
+        <div class="menu-item" onclick="showImage('images/carpaccio.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">Carpaccio di manzo</span><span class="menu-leader"></span><span class="menu-item-price">14,50 €</span></div>
+            <div class="menu-item-desc">Rindfleisch-Scheiben mit Parmesan, Kapern und Oliven</div>
+        </div>
+        <div class="menu-item" onclick="showImage('images/pollo-tonnato.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">Pollo tonnato</span><span class="menu-leader"></span><span class="menu-item-price">12,50 €</span></div>
+            <div class="menu-item-desc">Hähnchenbrust mit Thunfischsauce und Kapern</div>
+        </div>
+
+        <div class="section-divider">◈</div>
+
+        <h2>Pasta</h2>
+        <div class="menu-item" onclick="showImage('images/linguine.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">Linguine (De Cecco)</span><span class="menu-leader"></span><span class="menu-item-price">14,50 €</span></div>
+            <div class="menu-item-desc">NY Meat Balls und Parmesan</div>
+        </div>
+        <div class="menu-item" onclick="showImage('images/rigatoni.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">Mezze Rigatoni (De Cecco) <span class="tag">(scharf, veg.)</span></span><span class="menu-leader"></span><span class="menu-item-price">12,50 €</span></div>
+            <div class="menu-item-desc">Arrabiata, Peperoni, Parmesan</div>
+        </div>
+        <div class="menu-item" onclick="showImage('images/gnocchi.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">Gnocchi con Gorgonzola</span><span class="menu-leader"></span><span class="menu-item-price">12,50 €</span></div>
+            <div class="menu-item-desc">Hausgemachte Kartoffel-Gnocchi in milder Gorgonzola-Sauce</div>
+        </div>
+        <div class="menu-item" onclick="showImage('images/ravioli.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">Ravioli (frische)</span><span class="menu-leader"></span><span class="menu-item-price">17,50 €</span></div>
+            <div class="menu-item-desc">Mit Tomaten-Rucola-Füllung, Hähnchenbrust und Käsesauce</div>
+        </div>
+        <div class="menu-item" onclick="showImage('images/lasagne.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">Lasagne <span class="tag">(vegetarisch)</span></span><span class="menu-leader"></span><span class="menu-item-price">11,00 €</span></div>
+            <div class="menu-item-desc">Gemüsefüllung</div>
+        </div>
+        <div class="menu-item" onclick="showImage('images/lasagne-coniglio.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">Lasagne Coniglio</span><span class="menu-leader"></span><span class="menu-item-price">17,50 €</span></div>
+            <div class="menu-item-desc">Mit Kaninchenragout nach römischer Art gefüllt</div>
+        </div>
+        
+        <div class="section-divider">◈</div>
+
+        <h2>Carne</h2>
+        <div class="section-note">Fleischgerichte. Bitte wählen Sie dazu Gnocchi oder Thymian-Kartoffeln.</div>
+        <div class="menu-item" onclick="showImage('images/manzo.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">Manzo (Rind)</span><span class="menu-leader"></span><span class="menu-item-price">18,50 €</span></div>
+            <div class="menu-item-desc">Spitzpaprika mit Rindfleisch gefüllt und geschmort</div>
+        </div>
+        <div class="menu-item" onclick="showImage('images/agnello.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">Agnello (Lamm)</span><span class="menu-leader"></span><span class="menu-item-price">25,50 €</span></div>
+            <div class="menu-item-desc">Geschmorte Lammhüfte (ca. 300g Rohgewicht) nach toskanischer Art</div>
+        </div>
+        <div class="menu-item" onclick="showImage('images/pollo.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">Pollo (Hähnchen)</span><span class="menu-leader"></span><span class="menu-item-price">18,50 €</span></div>
+            <div class="menu-item-desc">Alla parmigiana, geschmort mit Parmesansauce</div>
+        </div>
+    </div>
+    
+    <div class="section-divider hide-on-print">◈</div>
+
+    <div class="print-section">
+        <h2>Pizza</h2>
+        <div class="section-note">Gut gereifter Teig, Tomaten und Fior-di-latte-Mozzarella.</div>
+        <div class="menu-item" onclick="showImage('images/pizza-verdura.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">Verdura <span class="tag">(vegetarisch)</span></span><span class="menu-leader"></span><span class="menu-item-price">11,00 €</span></div>
+            <div class="menu-item-desc">Mit Grillgemüse</div>
+        </div>
+        <div class="menu-item" onclick="showImage('images/pizza-salsiccia.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">Salsiccia</span><span class="menu-leader"></span><span class="menu-item-price">14,50 €</span></div>
+            <div class="menu-item-desc">Mit italienischer Fenchel-Bratwurst</div>
+        </div>
+        <div class="menu-item" onclick="showImage('images/pizza-sandaniele.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">San Daniele</span><span class="menu-leader"></span><span class="menu-item-price">17,50 €</span></div>
+            <div class="menu-item-desc">Mit Rohschinken, Rucola und Parmesan</div>
+        </div>
+
+        <div class="section-divider">◈</div>
+
+        <h2>Dolci</h2>
+        <div class="section-note">Süße Köstlichkeiten</div>
+        <div class="menu-item" onclick="showImage('images/petit-four.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">Petit Four mit Espresso</span><span class="menu-leader"></span><span class="menu-item-price">5,50 €</span></div>
+            <div class="menu-item-desc">Klein aber fein</div>
+        </div>
+        <div class="menu-item" onclick="showImage('images/tartufo.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">Geeistes Tartufo</span><span class="menu-leader"></span><span class="menu-item-price">6,50 €</span></div>
+            <div class="menu-item-desc">Mit Saisonfrüchten in Honig-Mascarpone</div>
+        </div>
+
+        <div class="section-divider">◈</div>
+
+        <h2>Vino e Bevande</h2>
+        <div class="section-note">Alle unsere Weine sind offen und können vorab probiert werden. Ausschankgröße: 0,15 l</div>
+        
+        <ul class="drink-list">
+            <li class="drink-item"><div class="drink-info"><span class="drink-type">Rotwein</span><span class="drink-name">Chianti Poggio al Casone</span></div><span class="menu-leader"></span><span class="drink-price">6,00 €</span></li>
+            <li class="drink-item"><div class="drink-info"><span class="drink-type">Rotwein</span><span class="drink-name">Primitivo I Muri</span></div><span class="menu-leader"></span><span class="drink-price">5,50 €</span></li>
+            <li class="drink-item"><div class="drink-info"><span class="drink-type">Rotwein</span><span class="drink-name">Barbera d´Alba Medaina</span></div><span class="menu-leader"></span><span class="drink-price">9,00 €</span></li>
+            <li class="drink-item"><div class="drink-info"><span class="drink-type">Weißwein</span><span class="drink-name">Vernaccia S. Gimignano</span></div><span class="menu-leader"></span><span class="drink-price">6,50 €</span></li>
+            <li class="drink-item"><div class="drink-info"><span class="drink-type">Roséwein</span><span class="drink-name">Rosé Trevenezie</span></div><span class="menu-leader"></span><span class="drink-price">6,50 €</span></li>
+            <li class="drink-item"><div class="drink-info"><span class="drink-type">Prosecco</span><span class="drink-name">Valdo, extra dry, Piccolo</span></div><span class="menu-leader"></span><span class="drink-price">9,50 €</span></li>
+        </ul>
+
+        <ul class="drink-list" style="margin-top: 15px;">
+            <li class="drink-item"><div class="drink-info"><span class="drink-type">Bier</span><span class="drink-name">Eschweger Klosterbräu <span class="tag">0,33 l</span></span></div><span class="menu-leader"></span><span class="drink-price">3,50 €</span></li>
+            <li class="drink-item"><div class="drink-info"><span class="drink-type">Bier</span><span class="drink-name">Krombacher Alkoholfrei <span class="tag">0,33 l</span></span></div><span class="menu-leader"></span><span class="drink-price">3,50 €</span></li>
+            <li class="drink-item"><div class="drink-info"><span class="drink-type">Bier</span><span class="drink-name">Erdinger Weizen Alkoholfrei <span class="tag">0,5 l</span></span></div><span class="menu-leader"></span><span class="drink-price">4,50 €</span></li>
+        </ul>
+
+        <ul class="drink-list" style="margin-top: 15px;">
+            <li class="drink-item"><div class="drink-info"><span class="drink-name">Rhön-Quelle <span class="tag">(still, medium, sprudelnd) - 0,75 l</span></span></div><span class="menu-leader"></span><span class="drink-price">4,50 €</span></li>
+            <li class="drink-item"><div class="drink-info"><span class="drink-name">Rhön-Quelle <span class="tag">(still, medium, sprudelnd) - 0,25 l</span></span></div><span class="menu-leader"></span><span class="drink-price">2,80 €</span></li>
+            <li class="drink-item"><div class="drink-info"><span class="drink-name">Softdrinks</span></div><span class="menu-leader"></span><span class="drink-price">3,00 €</span></li>
+            <li class="drink-item"><div class="drink-info"><span class="drink-name">Espresso / Kaffee</span></div><span class="menu-leader"></span><span class="drink-price">2,80 €</span></li>
+            <li class="drink-item"><div class="drink-info"><span class="drink-name">Latte / Cappuccino</span></div><span class="menu-leader"></span><span class="drink-price">3,80 €</span></li>
+        </ul>
+    </div>
+
+</div>
+
+<script>
+    function showImage(src) {
+        document.getElementById('popup-img').src = src;
+        document.getElementById('image-popup').style.display = 'flex';
+    }
+</script>
+
+</body>
+</html>
