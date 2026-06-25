@@ -143,7 +143,7 @@
             border: 1px solid var(--gold) !important;
             outline: 1px solid var(--gold) !important;
             outline-offset: -8px !important;
-            padding: 15px 20px !important; /* Slightly reduced top/bottom padding */
+            padding: 15px 20px !important; 
             margin-bottom: 20px !important;
             page-break-after: always;
             page-break-inside: avoid;
@@ -161,8 +161,8 @@
             border: 1px solid var(--gold) !important;
             outline: 1px solid var(--gold) !important;
             outline-offset: -4px !important;
-            padding: 6px 10px !important; /* Shrunk padding to save space */
-            margin: 6px auto 10px auto !important; /* Shrunk margins */
+            padding: 6px 10px !important; 
+            margin: 6px auto 10px auto !important; 
             font-size: 9.5pt !important;
             line-height: 1.3 !important;
         }
@@ -230,46 +230,38 @@
         <div class="section-divider">◈</div>
 
         <h2>Pasta</h2>
-        <div class="menu-item" onclick="showImage('images/linguine.jpg')">
-            <div class="menu-item-header"><span class="menu-item-name">Linguine (De Cecco)</span><span class="menu-leader"></span><span class="menu-item-price">14,50 €</span></div>
-            <div class="menu-item-desc">NY Meat Balls und Parmesan</div>
+        <div class="section-note">Unsere Nudelgerichte sind komplett hausgemacht.</div>
+        <div class="menu-item" onclick="showImage('images/spaghetti-meatballs.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">Spaghetti NY Meatballs</span><span class="menu-leader"></span><span class="menu-item-price">14,50 €</span></div>
+            <div class="menu-item-desc">Fleischklößchen in Tomaten geschmort</div>
         </div>
-        <div class="menu-item" onclick="showImage('images/rigatoni.jpg')">
-            <div class="menu-item-header"><span class="menu-item-name">Mezze Rigatoni (De Cecco) <span class="tag">(scharf, veg.)</span></span><span class="menu-leader"></span><span class="menu-item-price">12,50 €</span></div>
-            <div class="menu-item-desc">Arrabiata, Peperoni, Parmesan</div>
+        <div class="menu-item" onclick="showImage('images/spaghetti-arrabiata.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">Spaghetti arrabiata <span class="tag">(scharf)</span></span><span class="menu-leader"></span><span class="menu-item-price">11,50 €</span></div>
+            <div class="menu-item-desc">Peperoni, Tomaten</div>
         </div>
-        <div class="menu-item" onclick="showImage('images/gnocchi.jpg')">
-            <div class="menu-item-header"><span class="menu-item-name">Gnocchi con Gorgonzola</span><span class="menu-leader"></span><span class="menu-item-price">12,50 €</span></div>
-            <div class="menu-item-desc">Hausgemachte Kartoffel-Gnocchi in milder Gorgonzola-Sauce</div>
+        <div class="menu-item" onclick="showImage('images/tagliatelle-pollo.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">Tagliatelle pollo</span><span class="menu-leader"></span><span class="menu-item-price">15,50 €</span></div>
+            <div class="menu-item-desc">Hähnchen und Gorgonzolasauce</div>
         </div>
-        <div class="menu-item" onclick="showImage('images/ravioli.jpg')">
-            <div class="menu-item-header"><span class="menu-item-name">Ravioli (frische)</span><span class="menu-leader"></span><span class="menu-item-price">17,50 €</span></div>
-            <div class="menu-item-desc">Mit Tomaten-Rucola-Füllung, Hähnchenbrust und Käsesauce</div>
+        <div class="menu-item" onclick="showImage('images/tagliatelle-verdure.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">Tagliatelle verdure <span class="tag">(vegetarisch)</span></span><span class="menu-leader"></span><span class="menu-item-price">12,50 €</span></div>
+            <div class="menu-item-desc">Grillgemüse</div>
         </div>
-        <div class="menu-item" onclick="showImage('images/lasagne.jpg')">
-            <div class="menu-item-header"><span class="menu-item-name">Lasagne <span class="tag">(vegetarisch)</span></span><span class="menu-leader"></span><span class="menu-item-price">11,00 €</span></div>
-            <div class="menu-item-desc">Gemüsefüllung</div>
+        <div class="menu-item" onclick="showImage('images/ravioli-agnello.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">Ravioli agnello</span><span class="menu-leader"></span><span class="menu-item-price">15,50 €</span></div>
+            <div class="menu-item-desc">Mit Lammragout gefüllt</div>
         </div>
-        <div class="menu-item" onclick="showImage('images/lasagne-coniglio.jpg')">
-            <div class="menu-item-header"><span class="menu-item-name">Lasagne Coniglio</span><span class="menu-leader"></span><span class="menu-item-price">17,50 €</span></div>
-            <div class="menu-item-desc">Mit Kaninchenragout nach römischer Art gefüllt</div>
+        <div class="menu-item" onclick="showImage('images/ravioli-verdure.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">Ravioli verdure <span class="tag">(vegetarisch)</span></span><span class="menu-leader"></span><span class="menu-item-price">14,50 €</span></div>
+            <div class="menu-item-desc">Mit Gemüse und Ricotta gefüllt</div>
         </div>
-        
-        <div class="section-divider">◈</div>
-
-        <h2>Carne</h2>
-        <div class="section-note">Fleischgerichte. Bitte wählen Sie dazu Gnocchi oder Thymian-Kartoffeln.</div>
-        <div class="menu-item" onclick="showImage('images/manzo.jpg')">
-            <div class="menu-item-header"><span class="menu-item-name">Manzo (Rind)</span><span class="menu-leader"></span><span class="menu-item-price">18,50 €</span></div>
-            <div class="menu-item-desc">Spitzpaprika mit Rindfleisch gefüllt und geschmort</div>
+        <div class="menu-item" onclick="showImage('images/mezzelune-romana.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">Mezzelune romana</span><span class="menu-leader"></span><span class="menu-item-price">15,50 €</span></div>
+            <div class="menu-item-desc">Mit pikanter Hähnchenfüllung</div>
         </div>
-        <div class="menu-item" onclick="showImage('images/agnello.jpg')">
-            <div class="menu-item-header"><span class="menu-item-name">Agnello (Lamm)</span><span class="menu-leader"></span><span class="menu-item-price">25,50 €</span></div>
-            <div class="menu-item-desc">Geschmorte Lammhüfte (ca. 300g Rohgewicht) nach toskanischer Art</div>
-        </div>
-        <div class="menu-item" onclick="showImage('images/pollo.jpg')">
-            <div class="menu-item-header"><span class="menu-item-name">Pollo (Hähnchen)</span><span class="menu-leader"></span><span class="menu-item-price">18,50 €</span></div>
-            <div class="menu-item-desc">Alla parmigiana, geschmort mit Parmesansauce</div>
+        <div class="menu-item" onclick="showImage('images/pasta-mista.jpg')">
+            <div class="menu-item-header"><span class="menu-item-name">Pasta mista</span><span class="menu-leader"></span><span class="menu-item-price">15,50 €</span></div>
+            <div class="menu-item-desc">Verschiedene Nudeln mit geschmorter, gefüllter Spitzpaprika</div>
         </div>
     </div>
     
