@@ -45,7 +45,7 @@
 
     .print-section { position: relative; z-index: 2; margin-bottom: 0; }
 
-    /* Elegante Box für das Sonntags-Special (Doppelrahmen-Design) */
+    /* Elegante Box für das Themenabend-Special */
     .special-box {
         border: 1px solid var(--gold);
         outline: 1px solid var(--gold);
@@ -153,7 +153,6 @@
         
         .print-section:last-child { page-break-after: auto; }
 
-        /* Highly Compressed Typography for 2 pages */
         h1 { font-size: 30pt !important; margin-bottom: 2px !important; }
         .info { font-size: 10pt !important; padding-bottom: 5px !important; margin-bottom: 5px !important; }
         
@@ -171,7 +170,6 @@
         h2 { font-size: 14pt !important; margin-top: 8px !important; margin-bottom: 4px !important; }
         .section-note { font-size: 9.5pt !important; margin-bottom: 8px !important; }
         
-        /* Fixed margin and enforced page-break rules */
         .menu-item { margin-bottom: 8px !important; page-break-inside: avoid !important; }
         .menu-item-name { font-size: 11.5pt !important; }
         .menu-item-price, .drink-price { font-size: 11.5pt !important; }
@@ -200,62 +198,65 @@
             <strong>Öffnungszeiten:</strong> Freitag bis Sonntag 16:00 – 22:00 Uhr<br>
             Bei gutem Wetter Terrasse täglich ab 16:00 Uhr geöffnet
         </div>
+        
+        <!-- Themenabend Special Box based on provided flyer -->
+        <div class="special-box">
+            <strong>Der nächste Themenabend: Heimatabend</strong>
+            Freitag, 4. September ab 18:00 Uhr.<br>
+            Lesung mit Markus Voigt & lokalen Spezialitäten als Fingerfood.<br>
+            <em>Nur mit Reservierung!</em>
+        </div>
+
+        <h2>Aperitif</h2>
+        <div class="menu-item">
+            <div class="menu-item-header"><span class="menu-item-name">Aperol Spritz</span><span class="menu-leader"></span><span class="menu-item-price">7,50 €</span></div>
+            <div class="menu-item-desc">mit Prosecco</div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-item-header"><span class="menu-item-name">Pfirsich-Johannisbeer Spritz</span><span class="menu-leader"></span><span class="menu-item-price">7,50 €</span></div>
+            <div class="menu-item-desc">mit Prosecco</div>
+        </div>
+
+        <div class="section-divider">◈</div>
 
         <h2>Antipasti</h2>
         <div class="section-note">Salate und kalte Gerichte. Dazu unser Hausbrot und Aioli.</div>
         
-        <div class="menu-item" onclick="showImage('images/antipasti.jpg')">
-            <div class="menu-item-header"><span class="menu-item-name">Antipasti misti</span><span class="menu-leader"></span><span class="menu-item-price">16,50 €</span></div>
-            <div class="menu-item-desc">Italienischer Aufschnitt, gegrilltes Gemüse und Oliven</div>
+        <div class="menu-item">
+            <div class="menu-item-header"><span class="menu-item-name">Melone</span><span class="menu-leader"></span><span class="menu-item-price">13,50 €</span></div>
+            <div class="menu-item-desc">mit San Daniele Schinken</div>
         </div>
-        <div class="menu-item" onclick="showImage('images/insalata.jpg')">
-            <div class="menu-item-header"><span class="menu-item-name">Insalata con orecchione <span class="tag">(vegetarisch)</span></span><span class="menu-leader"></span><span class="menu-item-price">11,50 €</span></div>
-            <div class="menu-item-desc">Salatteller mit gebratenen Austernpilzen, Tomaten und Kräutern</div>
+        <div class="menu-item">
+            <div class="menu-item-header"><span class="menu-item-name">Grillgemüse</span><span class="menu-leader"></span><span class="menu-item-price">12,50 €</span></div>
+            <div class="menu-item-desc">mit Burrata</div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-item-header"><span class="menu-item-name">Grillgemüse</span><span class="menu-leader"></span><span class="menu-item-price">13,50 €</span></div>
+            <div class="menu-item-desc">mit San Daniele Schinken</div>
         </div>
         <div class="menu-item" onclick="showImage('images/carpaccio.jpg')">
-            <div class="menu-item-header"><span class="menu-item-name">Carpaccio di manzo</span><span class="menu-leader"></span><span class="menu-item-price">14,50 €</span></div>
+            <div class="menu-item-header"><span class="menu-item-name">Carpaccio</span><span class="menu-leader"></span><span class="menu-item-price">14,50 €</span></div>
             <div class="menu-item-desc">Rindfleisch-Scheiben mit Parmesan, Kapern und Oliven</div>
-        </div>
-        <div class="menu-item" onclick="showImage('images/pollo-tonnato.jpg')">
-            <div class="menu-item-header"><span class="menu-item-name">Pollo tonnato</span><span class="menu-leader"></span><span class="menu-item-price">12,50 €</span></div>
-            <div class="menu-item-desc">Hähnchenbrust mit Thunfischsauce und Kapern</div>
         </div>
 
         <div class="section-divider">◈</div>
 
         <h2>Pasta</h2>
         <div class="section-note">Unsere Nudelgerichte sind komplett hausgemacht.</div>
-        <div class="menu-item" onclick="showImage('images/spaghetti-meatballs.jpg')">
-            <div class="menu-item-header"><span class="menu-item-name">Spaghetti NY Meatballs</span><span class="menu-leader"></span><span class="menu-item-price">14,50 €</span></div>
-            <div class="menu-item-desc">Fleischklößchen in Tomaten geschmort</div>
+        <div class="menu-item">
+            <div class="menu-item-header"><span class="menu-item-name">Spaghetti Bolognese</span><span class="menu-leader"></span><span class="menu-item-price">12,50 €</span></div>
+            <div class="menu-item-desc">Rindfleisch-Sauce und Parmesan</div>
         </div>
-        <div class="menu-item" onclick="showImage('images/spaghetti-arrabiata.jpg')">
-            <div class="menu-item-header"><span class="menu-item-name">Spaghetti arrabiata <span class="tag">(scharf)</span></span><span class="menu-leader"></span><span class="menu-item-price">11,50 €</span></div>
-            <div class="menu-item-desc">Peperoni, Tomaten</div>
+        <div class="menu-item">
+            <div class="menu-item-header"><span class="menu-item-name">Spaghetti Tonno speciale</span><span class="menu-leader"></span><span class="menu-item-price">12,50 €</span></div>
         </div>
-        <div class="menu-item" onclick="showImage('images/tagliatelle-pollo.jpg')">
-            <div class="menu-item-header"><span class="menu-item-name">Tagliatelle pollo</span><span class="menu-leader"></span><span class="menu-item-price">15,50 €</span></div>
-            <div class="menu-item-desc">Hähnchen und Gorgonzolasauce</div>
+        <div class="menu-item">
+            <div class="menu-item-header"><span class="menu-item-name">Ravioli mit Pfifferlingen gefüllt</span><span class="menu-leader"></span><span class="menu-item-price">16,50 €</span></div>
+            <div class="menu-item-desc">dazu gebratene Hähnchenbrust</div>
         </div>
-        <div class="menu-item" onclick="showImage('images/tagliatelle-verdure.jpg')">
-            <div class="menu-item-header"><span class="menu-item-name">Tagliatelle verdure <span class="tag">(vegetarisch)</span></span><span class="menu-leader"></span><span class="menu-item-price">12,50 €</span></div>
-            <div class="menu-item-desc">Grillgemüse</div>
-        </div>
-        <div class="menu-item" onclick="showImage('images/ravioli-agnello.jpg')">
-            <div class="menu-item-header"><span class="menu-item-name">Ravioli agnello</span><span class="menu-leader"></span><span class="menu-item-price">15,50 €</span></div>
-            <div class="menu-item-desc">Mit Lammragout gefüllt</div>
-        </div>
-        <div class="menu-item" onclick="showImage('images/ravioli-verdure.jpg')">
-            <div class="menu-item-header"><span class="menu-item-name">Ravioli verdure <span class="tag">(vegetarisch)</span></span><span class="menu-leader"></span><span class="menu-item-price">14,50 €</span></div>
-            <div class="menu-item-desc">Mit Gemüse und Ricotta gefüllt</div>
-        </div>
-        <div class="menu-item" onclick="showImage('images/mezzelune-romana.jpg')">
-            <div class="menu-item-header"><span class="menu-item-name">Mezzelune romana</span><span class="menu-leader"></span><span class="menu-item-price">15,50 €</span></div>
-            <div class="menu-item-desc">Mit pikanter Hähnchenfüllung</div>
-        </div>
-        <div class="menu-item" onclick="showImage('images/pasta-mista.jpg')">
-            <div class="menu-item-header"><span class="menu-item-name">Pasta mista</span><span class="menu-leader"></span><span class="menu-item-price">15,50 €</span></div>
-            <div class="menu-item-desc">Verschiedene Nudeln mit geschmorter, gefüllter Spitzpaprika</div>
+        <div class="menu-item">
+            <div class="menu-item-header"><span class="menu-item-name">Ravioli mit Hähnchenfüllung</span><span class="menu-leader"></span><span class="menu-item-price">15,50 €</span></div>
+            <div class="menu-item-desc">in Gorgonzola-Sahnesauce</div>
         </div>
     </div>
     
@@ -265,15 +266,11 @@
         <h2>Pizza</h2>
         <div class="section-note">Gut gereifter Teig, Tomaten und Fior-di-latte-Mozzarella.</div>
         <div class="menu-item" onclick="showImage('images/pizza-verdura.jpg')">
-            <div class="menu-item-header"><span class="menu-item-name">Verdura <span class="tag">(vegetarisch)</span></span><span class="menu-leader"></span><span class="menu-item-price">11,00 €</span></div>
+            <div class="menu-item-header"><span class="menu-item-name">Pizza Verdure <span class="tag">(vegetarisch)</span></span><span class="menu-leader"></span><span class="menu-item-price">11,00 €</span></div>
             <div class="menu-item-desc">Mit Grillgemüse</div>
         </div>
-        <div class="menu-item" onclick="showImage('images/pizza-salsiccia.jpg')">
-            <div class="menu-item-header"><span class="menu-item-name">Salsiccia</span><span class="menu-leader"></span><span class="menu-item-price">14,50 €</span></div>
-            <div class="menu-item-desc">Mit italienischer Fenchel-Bratwurst</div>
-        </div>
         <div class="menu-item" onclick="showImage('images/pizza-sandaniele.jpg')">
-            <div class="menu-item-header"><span class="menu-item-name">San Daniele</span><span class="menu-leader"></span><span class="menu-item-price">17,50 €</span></div>
+            <div class="menu-item-header"><span class="menu-item-name">Pizza San Daniele</span><span class="menu-leader"></span><span class="menu-item-price">17,50 €</span></div>
             <div class="menu-item-desc">Mit Rohschinken, Rucola und Parmesan</div>
         </div>
 
