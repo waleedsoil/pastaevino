@@ -5,37 +5,59 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google" content="notranslate">
 <title>Alter Bahnhof - Speisekarte</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 <style>
     /* =========================================
-       1. TRADITIONAL GERMAN THEME (SCREEN)
+       1. PREMIUM VINTAGE THEME (SCREEN)
        ========================================= */
     :root {
-        --bg-color: #f4ede4; /* Warm paper/beige */
-        --card-bg: #fdfaf6;
-        --primary-red: #612d26; /* Deep rustic red */
-        --text-dark: #2b2b2b;
-        --text-muted: #4a4a4a;
-        --line-color: #d1cbb8;
-        --accent-green: #1a4f2c;
+        --bg-dark: #161413; /* Deep, warm charcoal */
+        --card-ivory: #fcf9f5;
+        --primary-red: #822b23; /* Classic vintage burgundy */
+        --accent-bronze: #b38b59; 
+        --text-dark: #1f1c1b;
+        --text-muted: #59534f;
+        --line-color: #d9d0c5;
     }
 
     body {
         margin: 0; 
-        padding: 40px 15px 80px 15px; 
-        background-color: var(--bg-color); 
-        font-family: 'Lora', serif; 
-        color: var(--text-dark);
+        padding: 50px 15px 80px 15px; 
+        background-color: var(--bg-dark); 
+        font-family: 'Cormorant Garamond', serif; 
+        position: relative;
+    }
+
+    /* Atmospheric Background Image */
+    body::before {
+        content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2000&auto=format&fit=crop'); 
+        background-size: cover; background-position: center; opacity: 0.12; z-index: -1;
     }
 
     .menu-container {
-        max-width: 800px; 
+        max-width: 850px; 
         margin: 0 auto; 
-        background-color: var(--card-bg); 
-        box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
-        border: 2px solid var(--primary-red); 
-        padding: 50px 40px;
-        border-radius: 8px;
+        background-color: var(--card-ivory); 
+        box-shadow: 0 40px 80px rgba(0,0,0,0.9); 
+        border: 1px solid var(--accent-bronze); 
+        outline: 1px solid var(--accent-bronze); 
+        outline-offset: -12px; 
+        padding: 60px 70px;
+        position: relative; 
+        overflow: hidden; 
+    }
+
+    /* Subtle Paper Texture inside the card */
+    .menu-container::before {
+        content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        background-image: url('https://images.unsplash.com/photo-1606555198971-ce4fbde3f55d?q=80&w=1000&auto=format&fit=crop');
+        background-size: cover; background-position: center; opacity: 0.05; z-index: 0; pointer-events: none;
+    }
+
+    .content-wrapper {
+        position: relative;
+        z-index: 2;
     }
 
     /* =========================================
@@ -44,208 +66,256 @@
     h1 { 
         text-align: center; 
         font-family: 'Playfair Display', serif; 
-        font-weight: 900; 
-        font-size: 3.5em; 
+        font-weight: 800; 
+        font-size: 4.5em; 
         text-transform: uppercase; 
-        color: var(--primary-red); 
-        margin: 0 0 5px 0; 
-        line-height: 1.1;
+        color: var(--text-dark); 
+        margin: 0 0 10px 0; 
+        line-height: 1;
+        letter-spacing: 2px;
     }
     
     .subtitle { 
         text-align: center; 
-        font-size: 1.2em; 
-        font-weight: 600; 
-        text-transform: uppercase; 
-        letter-spacing: 2px; 
-        color: var(--text-muted); 
-        margin-bottom: 25px; 
-        border-bottom: 2px solid var(--line-color); 
-        padding-bottom: 20px; 
+        font-family: 'Playfair Display', serif;
+        font-size: 1.4em; 
+        font-style: italic;
+        color: var(--primary-red); 
+        margin-bottom: 30px; 
+        border-bottom: 1px solid var(--line-color); 
+        padding-bottom: 25px; 
     }
 
     .info-section {
         text-align: center;
-        font-size: 1.1em;
+        font-size: 1.2em;
         line-height: 1.6;
-        margin-bottom: 30px;
+        color: var(--text-muted);
+        margin-bottom: 35px;
+    }
+    
+    .info-section strong {
+        color: var(--text-dark);
+        font-weight: 600;
     }
 
-    .accessibility {
-        color: var(--accent-green);
-        font-weight: bold;
-        margin-top: 10px;
+    .reservation-link {
+        display: inline-block;
+        margin-top: 8px;
+        color: var(--primary-red);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1em;
+        border-bottom: 1px dashed var(--primary-red);
+        transition: color 0.3s ease;
     }
 
     /* =========================================
-       3. PROMO BOX (NEUERÖFFNUNG)
+       3. ELEGANT PROMO BOX
        ========================================= */
     .special-box {
-        border: 2px dashed var(--primary-red);
-        background-color: #fff9f2;
-        padding: 20px;
-        margin: 30px auto;
+        border: 1px solid var(--primary-red);
+        outline: 1px solid var(--primary-red);
+        outline-offset: -5px;
+        background-color: transparent;
+        padding: 25px;
+        margin: 40px auto;
         text-align: center;
-        color: var(--primary-red);
-        border-radius: 4px;
+        color: var(--text-dark);
+        position: relative;
     }
 
     .special-box strong {
         font-family: 'Playfair Display', serif;
-        font-size: 1.5em;
+        font-size: 1.6em;
         display: block;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
+        color: var(--primary-red);
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 2px;
     }
     
     .special-box .highlight {
-        font-size: 1.6em;
-        font-weight: 900;
+        font-family: 'Playfair Display', serif;
+        font-size: 1.4em;
+        font-style: italic;
         display: block;
-        margin-top: 10px;
+        margin-top: 15px;
+        color: var(--accent-bronze);
     }
 
     /* =========================================
-       4. MENU ITEMS
+       4. MENU ITEMS (TASTING MENU STYLE)
        ========================================= */
     h2 { 
         text-align: center; 
         font-family: 'Playfair Display', serif; 
         font-size: 2em; 
-        color: var(--primary-red); 
-        margin-top: 40px; 
-        margin-bottom: 25px; 
-        border-bottom: 1px solid var(--line-color);
-        padding-bottom: 10px;
+        color: var(--text-dark); 
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        margin-top: 50px; 
+        margin-bottom: 15px; 
+    }
+    
+    .section-divider { 
+        display: flex; align-items: center; justify-content: center; margin-bottom: 35px; color: var(--accent-bronze); font-size: 0.8em;
+    }
+    .section-divider::before, .section-divider::after { 
+        content: ""; width: 60px; height: 1px; background: var(--accent-bronze); margin: 0 15px; opacity: 0.5;
     }
     
     .menu-item { 
-        margin-bottom: 20px; 
+        margin-bottom: 28px; 
         text-align: center;
     }
     
     .menu-item-name { 
+        font-family: 'Playfair Display', serif;
         font-weight: 600; 
-        font-size: 1.4em; 
-        color: var(--text-dark); 
+        font-size: 1.6em; 
+        color: var(--primary-red); 
         display: block;
-        margin-bottom: 4px;
+        line-height: 1.2;
     }
     
     .menu-item-desc { 
         color: var(--text-muted); 
-        font-size: 1.1em; 
+        font-size: 1.25em; 
         font-style: italic; 
+        margin-top: 6px;
+        display: block;
     }
 
-    .dessert-note {
-        text-align: center;
-        font-style: italic;
-        margin-top: 40px;
-        padding: 20px;
-        background: var(--bg-color);
-        border-radius: 8px;
+    .item-separator {
+        text-align: center; 
+        color: var(--line-color); 
+        margin: 20px 0; 
         font-size: 1.2em;
-        color: var(--primary-red);
-        font-weight: bold;
     }
 
     /* =========================================
-       5. MOBILE RESPONSIVENESS
+       5. DESSERT TEASER
+       ========================================= */
+    .dessert-note {
+        text-align: center;
+        margin-top: 50px;
+        padding-top: 30px;
+        border-top: 1px solid var(--line-color);
+        font-size: 1.4em;
+        font-style: italic;
+        color: var(--text-dark);
+    }
+    .dessert-note span {
+        color: var(--primary-red);
+        font-weight: 600;
+        font-family: 'Playfair Display', serif;
+        display: block;
+        font-size: 1.2em;
+        margin-bottom: 5px;
+    }
+
+    /* =========================================
+       6. MOBILE RESPONSIVENESS
        ========================================= */
     @media (max-width: 768px) {
-        body { padding: 15px 10px; }
-        .menu-container { padding: 30px 20px; }
-        h1 { font-size: 2.5em; }
-        .subtitle { font-size: 1em; }
-        .special-box strong { font-size: 1.2em; }
-        .special-box .highlight { font-size: 1.3em; }
-        .menu-item-name { font-size: 1.2em; }
+        body { padding: 10px 5px; }
+        .menu-container { padding: 35px 20px; outline-offset: -8px; }
+        h1 { font-size: 3em; }
+        .subtitle { font-size: 1.2em; }
+        .special-box { padding: 20px 15px; }
+        .special-box strong { font-size: 1.3em; }
+        .special-box .highlight { font-size: 1.2em; }
+        .menu-item-name { font-size: 1.4em; }
+        .menu-item-desc { font-size: 1.1em; }
+        h2 { font-size: 1.6em; }
     }
 </style>
 </head>
 <body>
 
 <div class="menu-container">
+    <div class="content-wrapper">
 
-    <h1>Alter Bahnhof</h1>
-    <div class="subtitle">Bürgerliche Küche in Bad Sooden</div>
-    
-    <div class="info-section">
-        <strong>Öffnungszeiten:</strong><br>
-        Do, Fr, Sa: 17:00 – 21:00 Uhr<br>
-        So: 12:00 – 21:00 Uhr<br><br>
-        <strong>Reservierungen:</strong><br>
-        Tel / WhatsApp: <a href="https://api.whatsapp.com/send/?phone=4915253496893&text=Hallo%2C+ich+m%C3%B6chte+gerne+einen+Tisch+reservieren" style="color: var(--primary-red); text-decoration: none; font-weight: bold;">01525 3496893</a><br>
-        <div class="accessibility">♿ Barrierefreier Zugang</div>
-    </div>
+        <h1>Alter Bahnhof</h1>
+        <div class="subtitle">Bürgerliche Küche in Bad Sooden</div>
+        
+        <div class="info-section">
+            <strong>Geöffnet:</strong> Do, Fr, Sa 17:00 – 21:00 Uhr &nbsp;|&nbsp; So 12:00 – 21:00 Uhr<br>
+            <div style="margin-top: 8px; font-size: 0.9em; color: #1a4f2c; font-weight: 600;">♿ Barrierefreier Zugang</div>
+            <br>
+            <strong>Bitte Tisch reservieren:</strong><br>
+            <a href="https://api.whatsapp.com/send/?phone=4915253496893&text=Hallo%2C+ich+m%C3%B6chte+gerne+einen+Tisch+reservieren" class="reservation-link">✆ 01525 3496893 (Tel / WhatsApp)</a>
+        </div>
 
-    <!-- Neueröffnung Promo Box -->
-    <div class="special-box">
-        <strong>Große Neueröffnung</strong>
-        Freitag, 4. September<br>
-        <span class="highlight">Am 1. Wochenende ALLE Gerichte der Speisekarte 5 €</span>
-    </div>
+        <!-- Elegante Neueröffnung Promo Box -->
+        <div class="special-box">
+            <strong>Große Neueröffnung</strong>
+            Freitag, 4. September<br>
+            <span class="highlight">Am 1. Wochenende ALLE Gerichte der Speisekarte 5 €</span>
+        </div>
 
-    <h2>Suppen & Vorspeisen</h2>
-    
-    <div class="menu-item">
-        <span class="menu-item-name">Terrine Soljanka</span>
-        <span class="menu-item-desc">mit Brot</span>
-    </div>
-    <div class="menu-item">
-        <span class="menu-item-name">Terrine Gulaschsuppe</span>
-        <span class="menu-item-desc">mit Brot</span>
-    </div>
+        <h2>Suppen & Vorspeisen</h2>
+        <div class="section-divider">❖</div>
+        
+        <div class="menu-item">
+            <span class="menu-item-name">Terrine Soljanka</span>
+            <span class="menu-item-desc">mit Brot</span>
+        </div>
+        <div class="menu-item">
+            <span class="menu-item-name">Terrine Gulaschsuppe</span>
+            <span class="menu-item-desc">mit Brot</span>
+        </div>
 
-    <h2>Hauptgerichte</h2>
-    
-    <div class="menu-item">
-        <span class="menu-item-name">Grüne Sauce</span>
-        <span class="menu-item-desc">mit Eiern und Salzkartoffeln</span>
-    </div>
-    <div class="menu-item">
-        <span class="menu-item-name">Sülze</span>
-        <span class="menu-item-desc">mit Tartarensauce und Bratkartoffeln</span>
-    </div>
-    <div class="menu-item">
-        <span class="menu-item-name">Kohlroulade</span>
-        <span class="menu-item-desc">mit Specksauce, Salzkartoffeln und Salat</span>
-    </div>
-    
-    <div style="text-align: center; color: var(--line-color); margin: 30px 0; font-size: 1.5em;">&sim;</div>
-    
-    <div class="menu-item">
-        <span class="menu-item-name">Jägerschnitzel (Ost)</span>
-        <span class="menu-item-desc">Jagdwurst paniert, Sauce, Pommes</span>
-    </div>
-    <div class="menu-item">
-        <span class="menu-item-name">Jägerschnitzel (West)</span>
-        <span class="menu-item-desc">Hähnchenbrust paniert, Champignonrahmsauce</span>
-    </div>
-    <div class="menu-item">
-        <span class="menu-item-name">Paprikarahmschnitzel</span>
-        <span class="menu-item-desc">mit Pommes oder Reis, dazu Salat</span>
-    </div>
-    
-    <div style="text-align: center; color: var(--line-color); margin: 30px 0; font-size: 1.5em;">&sim;</div>
+        <h2>Hauptgerichte</h2>
+        <div class="section-divider">❖</div>
+        
+        <div class="menu-item">
+            <span class="menu-item-name">Grüne Sauce</span>
+            <span class="menu-item-desc">mit Eiern und Salzkartoffeln</span>
+        </div>
+        <div class="menu-item">
+            <span class="menu-item-name">Sülze</span>
+            <span class="menu-item-desc">mit Tartarensauce und Bratkartoffeln</span>
+        </div>
+        <div class="menu-item">
+            <span class="menu-item-name">Kohlroulade</span>
+            <span class="menu-item-desc">mit Specksauce, Salzkartoffeln und Salat</span>
+        </div>
+        
+        <div class="item-separator">❧</div>
+        
+        <div class="menu-item">
+            <span class="menu-item-name">Jägerschnitzel (Ost)</span>
+            <span class="menu-item-desc">Jagdwurst paniert, Sauce, Pommes</span>
+        </div>
+        <div class="menu-item">
+            <span class="menu-item-name">Jägerschnitzel (West)</span>
+            <span class="menu-item-desc">Hähnchenbrust paniert, Champignonrahmsauce</span>
+        </div>
+        <div class="menu-item">
+            <span class="menu-item-name">Paprikarahmschnitzel</span>
+            <span class="menu-item-desc">mit Pommes oder Reis, dazu Salat</span>
+        </div>
+        
+        <div class="item-separator">❧</div>
 
-    <div class="menu-item">
-        <span class="menu-item-name">Königsberger Klopse</span>
-        <span class="menu-item-desc">in Kapernsauce, Salzkartoffeln, Rote Bete</span>
-    </div>
-    <div class="menu-item">
-        <span class="menu-item-name">Hühnerfrikassee "Hausfrauenart"</span>
-        <span class="menu-item-desc">mit Spargel und Champignons, dazu Reis und Salat</span>
-    </div>
+        <div class="menu-item">
+            <span class="menu-item-name">Königsberger Klopse</span>
+            <span class="menu-item-desc">in Kapernsauce, Salzkartoffeln, Rote Bete</span>
+        </div>
+        <div class="menu-item">
+            <span class="menu-item-name">Hühnerfrikassee "Hausfrauenart"</span>
+            <span class="menu-item-desc">mit Spargel und Champignons, dazu Reis und Salat</span>
+        </div>
 
-    <!-- Desserts Teaser -->
-    <div class="dessert-note">
-        Lust auf etwas Süßes?<br>
-        <span style="font-size: 0.9em; font-weight: normal; color: var(--text-dark);">Fragen Sie nach unseren hausgemachten Süßspeisen!</span>
-    </div>
+        <!-- Desserts Teaser -->
+        <div class="dessert-note">
+            <span>Lust auf etwas Süßes?</span>
+            Fragen Sie nach unseren hausgemachten Desserts.
+        </div>
 
+    </div>
 </div>
 
 </body>
