@@ -25,16 +25,15 @@
     body {
         margin: 0;
         padding: 0;
-        background-color: #e0e0e0; /* Gray background for screen viewing */
+        background-color: #e0e0e0; 
         font-family: 'Cormorant Garamond', serif;
         -webkit-print-color-adjust: exact; 
         print-color-adjust: exact;
     }
 
-    /* A5 Page Container */
     .page {
         width: 148mm;
-        height: 209.5mm; /* slightly under 210mm to prevent accidental blank pages */
+        height: 209.5mm; 
         margin: 0 auto;
         background-color: var(--card-ivory);
         position: relative;
@@ -42,7 +41,7 @@
         page-break-inside: avoid;
         box-sizing: border-box;
         padding: 8mm;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Only visible on screen */
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
     @media print {
@@ -50,7 +49,6 @@
         .page { box-shadow: none; margin: 0; }
     }
 
-    /* Elegant Double-Border */
     .page-inner {
         border: 1px solid var(--gold);
         outline: 1.5px solid var(--gold);
@@ -111,7 +109,6 @@
     }
     .info-section strong { font-family: 'Cinzel', serif; font-size: 11pt; color: var(--gold-dark); letter-spacing: 1px; }
 
-    /* VIP Promo Box */
     .special-box {
         background-color: var(--burgundy);
         border: 1.5px solid var(--gold);
@@ -150,40 +147,40 @@
     }
 
     /* =========================================
-       4. BACK PAGE SPECIFICS (MENU)
+       4. BACK PAGE SPECIFICS (COMPRESSED)
        ========================================= */
     h2 { 
         font-family: 'Cinzel', serif; 
-        font-size: 18pt; 
+        font-size: 16pt; 
         font-weight: 700;
         color: var(--burgundy); 
         text-transform: uppercase;
         letter-spacing: 2px;
         text-align: center;
-        margin: 2mm 0 6mm 0;
+        margin: 0 0 4mm 0;
         border-bottom: 1px solid var(--gold);
-        padding-bottom: 3mm;
+        padding-bottom: 2mm;
     }
 
-    .menu-group { margin-bottom: 4mm; }
+    .menu-group { margin-bottom: 1.5mm; }
     
     .menu-item { 
-        margin-bottom: 3.5mm; 
+        margin-bottom: 2mm; 
         text-align: center;
-        line-height: 1.2;
+        line-height: 1.15;
     }
     
     .menu-item-name { 
         font-family: 'Cinzel', serif;
         font-weight: 700; 
-        font-size: 11pt; 
+        font-size: 10.5pt; 
         color: var(--text-dark); 
         display: block;
     }
     
     .menu-item-desc { 
         color: var(--text-muted); 
-        font-size: 11pt; 
+        font-size: 10.5pt; 
         font-style: italic; 
         font-weight: 600;
     }
@@ -191,17 +188,17 @@
     .diamond-sep {
         text-align: center;
         color: var(--gold);
-        font-size: 8pt;
-        margin: 3mm 0;
+        font-size: 7pt;
+        margin: 1.5mm 0;
     }
 
     .dessert-note {
         text-align: center;
-        margin-top: 6mm;
-        padding: 4mm;
+        margin-top: 4mm;
+        padding: 3mm;
         border: 1px dashed var(--gold);
         background-color: rgba(197, 160, 89, 0.08);
-        font-size: 12pt;
+        font-size: 11pt;
         font-style: italic;
         color: var(--text-dark);
         font-weight: 600;
@@ -212,7 +209,7 @@
         font-style: normal;
         font-weight: 700;
         display: block;
-        font-size: 10pt;
+        font-size: 9.5pt;
         letter-spacing: 1px;
         margin-bottom: 1mm;
         text-transform: uppercase;
